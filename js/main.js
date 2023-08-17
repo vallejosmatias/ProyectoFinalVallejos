@@ -1,6 +1,6 @@
 // variables del dom
 const contProductos = document.querySelector(".cont-productos");
-const contCarrito = document.querySelector(".offcanvas-body");
+const contCarrito = document.querySelector(".prod-carrito");
 
 // obtener los productos de la db json
 const obtenerProductos = async () => {
@@ -98,4 +98,6 @@ const mostrartTotal = () => {
   totalElement.textContent = `Total $${total}`;
 };
 
+
+mostrarCarrito();
 
