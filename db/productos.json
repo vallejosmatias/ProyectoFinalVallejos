@@ -1,0 +1,199 @@
+[
+  {
+    "id": 1,
+    "img": "../asset/articulados/articulado1.jpg",
+    "nombre": "Dinosaurio",
+    "precio": 1500,
+    "articulo": "articulado",
+    "cantidad": 1
+  },
+
+  {
+    "id": 2,
+    "img": "../asset/articulados/articulado2.jpg",
+    "nombre": "Armadillo",
+    "precio": 1000,
+    "articulo": "articulado",
+    "cantidad": 1
+  },
+
+  {
+    "id": 3,
+    "img": "../asset/articulados/articulado3.jpg",
+    "nombre": "Pulpo",
+    "precio": 1000,
+    "articulo": "articulado",
+    "cantidad": 1
+  },
+
+  {
+    "id": 4,
+    "img": "../asset/articulados/articulado4.jpg",
+    "nombre": "Dragon 3d",
+    "precio": 3000,
+    "articulo": "articulado",
+    "cantidad": 1
+  },
+
+  {
+    "id": 5,
+    "img": "../asset/accesorios/accesorio2.jpg",
+    "nombre": "Organizador",
+    "precio": 1200,
+    "articulo": "accesorio",
+    "cantidad": 1
+  },
+
+  {
+    "id": 6,
+    "img": "../asset/accesorios/accesorio3.jpg",
+    "nombre": "Porta notebook",
+    "precio": 800,
+    "articulo": "accesorio",
+    "cantidad": 1
+  },
+
+  {
+    "id": 7,
+    "img": "../asset/accesorios/accesorio4.jpg",
+    "nombre": "Org. de filamento",
+    "precio": 1700,
+    "articulo": "accesorio",
+    "cantidad": 1
+  },
+
+  {
+    "id": 8,
+    "img": "../asset/accesorios/accesorio5.jpg",
+    "nombre": "Porta auricular",
+    "precio": 1500,
+    "articulo": "accesorio",
+    "cantidad": 1
+  },
+
+  {
+    "id": 9,
+    "img": "../asset/accesorios/accesorio6.jpg",
+    "nombre": "Cigarrera",
+    "precio": 1000,
+    "articulo": "accesorio",
+    "cantidad": 1
+  },
+
+  {
+    "id": 10,
+    "img": "../asset/accesorios/accesorio7.jpg",
+    "nombre": "Combo Organizador x 3",
+    "precio": 3500,
+    "articulo": "accesorio",
+    "cantidad": 1
+  },
+
+  {
+    "id": 11,
+    "img": "../asset/mates/mate1.jpg",
+    "nombre": "Mate star wars",
+    "precio": 1500,
+    "articulo": "personalizado",
+    "cantidad": 1
+  },
+
+  {
+    "id": 12,
+    "img": "../asset/mates/mate2.jpg",
+    "nombre": "Mate Groot",
+    "precio": 2000,
+    "articulo": "personalizado",
+    "cantidad": 1
+  },
+
+  {
+    "id": 13,
+    "img": "../asset/mates/mate3.jpg",
+    "nombre": "Mate Stich",
+    "precio": 3000,
+    "articulo": "personalizado",
+    "cantidad": 1
+  },
+
+  {
+    "id": 14,
+    "img": "../asset/mates/mate4.jpg",
+    "nombre": "Mate Harry Potter",
+    "precio": 4000,
+    "articulo": "personalizado",
+    "cantidad": 1
+  },
+
+  {
+    "id": 15,
+    "img": "../asset/mates/mate5.jpg",
+    "nombre": "Mate Darth Vader",
+    "precio": 4000,
+    "articulo": "personalizado",
+    "cantidad": 1
+  },
+
+  {
+    "id": 16,
+    "img": "../asset/mates/mate6.jpg",
+    "nombre": "Mate Play Station",
+    "precio": 3000,
+    "articulo": "personalizado",
+    "cantidad": 1
+  },
+
+  {
+    "id": 17,
+    "img": "../asset/muñecos/muñeco1.jpg",
+    "nombre": "Mickey",
+    "precio": 6000,
+    "articulo": "Muñeco",
+    "cantidad": 1
+  },
+
+  {
+    "id": 18,
+    "img": "../asset/muñecos/muñeco2.jpg",
+    "nombre": "Zeus",
+    "precio": 4000,
+    "articulo": "Muñeco",
+    "cantidad": 1
+  },
+
+  {
+    "id": 19,
+    "img": "../asset/muñecos/muñeco3.jpg",
+    "nombre": "Among Us",
+    "precio": 3000,
+    "articulo": "Muñeco",
+    "cantidad": 1
+  },
+
+  {
+    "id": 20,
+    "img": "../asset/muñecos/muñeco4.jpg",
+    "nombre": "Murcielagos",
+    "precio": 2000,
+    "articulo": "Muñeco",
+    "cantidad": 1
+  },
+
+  {
+    "id": 21,
+    "img": "../asset/muñecos/muñeco5.jpg",
+    "nombre": "Hero",
+    "precio": 3500,
+    "articulo": "Muñeco",
+    "cantidad": 1
+  },
+
+  {
+    "id": 22,
+    "img": "../asset/muñecos/muñeco6.jpg",
+    "nombre": "Mini Darth Vader",
+    "precio": 5000,
+    "articulo": "Muñeco",
+    "cantidad": 1
+  }
+]

@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* #body {
+  background: rgb(59,58,58);
+  background: radial-gradient(circle, rgba(59,58,58,1) 0%, rgba(17,25,23,1) 72%, rgba(2,3,6,1) 100%);
+} */
+
+/* header */
+.cont-logo {
+  display: flex;
+  margin-top: 56px;
+  width: 100%;
+  height: 150px;
+  background: rgb(59,58,58);
+  background: radial-gradient(circle, rgba(59,58,58,1) 0%, rgba(17,25,23,1) 72%, rgba(2,3,6,1) 100%);
+  justify-content: center;
+  align-items: center;
+}
+
+.cont-logo img {
+  border-radius: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+/* main */
+main {
+  background: rgb(59,58,58);
+  background: radial-gradient(circle, rgba(59,58,58,1) 0%, rgba(17,25,23,1) 72%, rgba(2,3,6,1) 100%);
+}
+
+.cont-productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-product{
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 350px;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 10px 0px 10px;
+  border: 2px solid #000;
+  border-radius: 15px;
+  box-shadow: 10px 10px 15px #0a0909;
+}
+
+.card-product img {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 1px solid #2e2c2c;
+}
+
+.card-product p{
+  margin: 10px 0;
+  font-size: 20px;
+} 
+
+.card-product h4{
+  font-size: 20px;
+  margin: 10px 0;
+} 
+
+.card-product button{
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  text-align: center;
+  background: rgba(66, 58, 58, 0.609);
+  color: #fff;
+}
+
+.card-product button:hover{
+  background: rgba(20, 18, 18, 0.693);
+}
