@@ -25,22 +25,22 @@ const mostrarProductos = (productos) => {
     `;
     contProductos.appendChild(div);
   });
+  
+  // funcional btn comprar
+  const btnComprar = document.querySelectorAll(".btn-comprar");
+  btnComprar.forEach((el) => {
+    el.addEventListener(`click`, (e) => {
+      agregarCarrito(productos, e.target.id);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+    });
+  });
 };
 
 // creando array de carrito
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-// funcional btn comprar
-const btnComprar = document.querySelectorAll(".btn-comprar");
-btnComprar.forEach((el) => {
-  el.addEventListener(`click`, (e) => {
-    agregarCarrito(e.target.id);
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-  });
-});
-
 // agregar al carrito
-function agregarCarrito(id) {
+function agregarCarrito(data, id) {
   const existe = carrito.some((prod) => prod.id === parseInt(id));
   if (existe) {
     carrito.forEach((prod) => {
@@ -59,7 +59,8 @@ function agregarCarrito(id) {
 
 // mostrar en carrito
 function mostrarCarrito() {
-  if (carrito) {
+  if (carrito.length >0) {
+    contCarrito.innerHTML = ` `
     carrito.forEach((p) => {
       let nuevoProd = document.createElement("div");
       nuevoProd.classList.add("productos");
@@ -71,7 +72,12 @@ function mostrarCarrito() {
       <button id="eliminar-${p.id}" data-id="${p.id}" class="btn-eliminar"><i class="fa-solid fa-trash"></i></button>  
       `;
       contCarrito.appendChild(nuevoProd);
+
+      const btnEliminar = document.querySelector(`#eliminar-${p.id}`);
+      btnEliminar.addEventListener(`click`, eliminarProdCar);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
     });
+
     let div = document.createElement("div");
     div.classList.add("total");
     div.innerHTML = `
@@ -85,6 +91,13 @@ function mostrarCarrito() {
   }
 }
 
+// funcion eliminar
+function eliminarProdCar(e) {
+  const id = e.target.dataset.id;
+  const index = carrito.findIndex((p) => p.id === parseInt(id));
+  carrito.splice(index, 1);
+  mostrarCarrito();
+}
 
 // totales
 let total = 0;
@@ -95,9 +108,7 @@ const calcularTotal = () => {
 
 const mostrartTotal = () => {
   const totalElement = document.querySelector("#total");
-  totalElement.textContent = `Total $${total}`;
+  totalElement.textContent = `$${total}`;
 };
 
-
 mostrarCarrito();
-
