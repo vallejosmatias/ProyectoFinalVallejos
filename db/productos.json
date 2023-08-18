@@ -29,7 +29,7 @@
   {
     "id": 4,
     "img": "../asset/articulados/articulado4.jpg",
-    "nombre": "Dragon 3d",
+    "nombre": "Dragon",
     "precio": 3000,
     "articulo": "articulado",
     "cantidad": 1
@@ -83,7 +83,7 @@
   {
     "id": 10,
     "img": "../asset/accesorios/accesorio7.jpg",
-    "nombre": "Combo Organizador x 3",
+    "nombre": "Organizador x 3",
     "precio": 3500,
     "articulo": "accesorio",
     "cantidad": 1

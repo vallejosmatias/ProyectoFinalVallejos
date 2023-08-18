@@ -4,19 +4,20 @@
   box-sizing: border-box;
 }
 
-/* #body {
+body {
+  max-width: 1440px;
+  margin: 0 auto;
   background: rgb(59,58,58);
   background: radial-gradient(circle, rgba(59,58,58,1) 0%, rgba(17,25,23,1) 72%, rgba(2,3,6,1) 100%);
-} */
+}
 
 /* header */
 .cont-logo {
   display: flex;
-  margin-top: 80px;
+  margin-top: 72px;
   width: 100%;
   height: 150px;
-  background: rgb(59,58,58);
-  background: radial-gradient(circle, rgba(59,58,58,1) 0%, rgba(17,25,23,1) 72%, rgba(2,3,6,1) 100%);
+  background:transparent;
   justify-content: center;
   align-items: center;
 }
@@ -29,10 +30,8 @@
 
 /* main */
 main {
-  background: rgb(59,58,58);
-  background: radial-gradient(circle, rgba(59,58,58,1) 0%, rgba(17,25,23,1) 72%, rgba(2,3,6,1) 100%);
+  background: transparent;
   width: 100%;
-  height: 100%;
 }
 
 h1{
@@ -106,7 +105,7 @@ h1{
 }
 
 .productos p,button{
-  margin: 9px;
+  margin: 5px;
   font-size: 13px;
 }
 
@@ -121,7 +120,7 @@ h1{
 }
 
 .productos button:hover{
-  background: rgba(20, 18, 18, 0.693);
+  background: rgba(64, 58, 58, 0.693);
 }
 
 .total{
@@ -132,8 +131,84 @@ h1{
   text-align: center;
   font-size: 25px;
   border: 1px solid #fff;
+  order: 2;
 }
 
 .total p{
   padding: 10px;
+}
+
+.vacio {
+  text-align: center;
+  font-size: 25px;
+  margin: 20px;
+}
+
+.offcanvas-edit{
+  font-size: 15px;
+}
+
+.carrito-nom{
+  width: 105px;
+}
+
+.carrito-art{
+  width: 82px;
+  /* text-align: center; */
+}
+
+.carrito-cant{
+  width: 20px;
+  text-align: center;
+}
+
+.carrito-pr{
+  width: 45px;
+  text-align: center;
+}
+
+footer{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 80px 0 30px;
+}
+
+footer .redes-edit a{
+  font-size: 35px;
+  color: #ffffff79;
+  text-decoration: none;
+  margin: 15px;
+  cursor: pointer;
+}
+
+footer .info-edit{
+  font-size: 15px;
+  color: #ffffff79;
+}
+
+.finalizar a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 17px;
+  background-color: #ffffff79;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #fff;
+}
+
+.finalizar{
+  order: 1;
+}
+
+.cont-buttons{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comprar-fin{
+  background: transparent;
+  width: 100%;
+  height: 100vh;
 }
