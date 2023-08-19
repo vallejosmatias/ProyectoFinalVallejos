@@ -208,7 +208,24 @@ footer .info-edit{
 }
 
 .comprar-fin{
-  background: transparent;
+  /* background: transparent; */
   width: 100%;
   height: 100vh;
+}
+
+.pagina2{
+  margin-top: 86px;
+  text-decoration: none;
+}
+
+.pagina2 li a{
+  color: #fff;
+}
+
+.pagina2 li a:hover{
+  color: #483b3b;
+}
+
+.pagina2 li a:focus{
+  color: #483b3b;
 }

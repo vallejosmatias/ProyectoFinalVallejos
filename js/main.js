@@ -33,16 +33,15 @@ const mostrarProductos = (productos) => {
       agregarCarrito(productos, e.target.id);
       Toastify({
         text: "Producto agregado al carrito",
-        duration: 2000,
+        duration: 1000,
         destination: "https://github.com/apvarun/toastify-js",
         newWindow: true,
         close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "left", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
+        gravity: "top", 
+        position: "left",
+        stopOnFocus: true,
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
-        },
+          background: "linear-gradient(to right,#3b3a3a, #35dab7)",        },
         onClick: function(){} // Callback after click
       }).showToast();
       localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -133,7 +132,7 @@ function eliminarProdCar(id) {
         position: "left", 
         stopOnFocus: true, 
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+          background: "linear-gradient(to right, #35dab7, #3b3a3a)",
         },
         onClick: function(){}
       }).showToast();
@@ -156,10 +155,14 @@ function eliminarProdCar(id) {
             );
             carrito.splice(index, 1);
         }
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+      mostrarCarrito();
+      calcularTotal();
+      mostrartTotal();
       })
     
     }
-    
+
     localStorage.setItem("carrito", JSON.stringify(carrito));
     mostrarCarrito();
     calcularTotal();
@@ -183,3 +186,4 @@ mostrarCarrito();
 
 const finalizar = document.querySelector ("#pagos");
 
+console.log(contador);
