@@ -140,7 +140,7 @@ function mostrarCarrito() {
     let btnFinalizar = document.createElement("div");
     btnFinalizar.classList.add("finalizar");
     btnFinalizar.innerHTML = `
-    <a href="pages/finalizarcarrito.html">Finalizar compra</a>
+    <a class="btn-finalizar" href="pages/finalizarcarrito.html">Finalizar compra</a>
     `;
     contDiv.appendChild(btnFinalizar);
   } else {
@@ -219,6 +219,8 @@ mostrarCarrito();
 // contador de productos
 let contadorProd = 0;
 
-const prodTotales = document.querySelector("#prod-totales");
-prodTotales.innerHTML = `${contadorProd}`;
-
+const btnFinalizar = document.querySelector(".btn-finalizar");
+btnFinalizar.addEventListener(`click`, (e) =>{
+  const prodTotales = document.querySelector("#prod-totales");
+  prodTotales.innerHTML = `${contadorProd}`;
+})
