@@ -188,7 +188,7 @@ footer .info-edit{
   color: #ffffff79;
 }
 
-.finalizar a{
+.finalizar button{
   text-decoration: none;
   color: #fff;
   font-size: 17px;
@@ -196,6 +196,11 @@ footer .info-edit{
   padding: 10px;
   border-radius: 15px;
   border: 1px solid #fff;
+}
+
+.finalizar button:hover{
+  border: 1px solid #fff;
+  background-color: #56535379;
 }
 
 .finalizar{
@@ -208,78 +213,9 @@ footer .info-edit{
   justify-content: space-between;
 }
 
-.comprar-fin{
-  /* background: transparent; */
-  width: 100%;
-  /* height: 100vh; */
-}
-
-.comprar-fin{
-  margin: 40px auto 0;
-  padding: 50px 0 0;
-  display: flex;
-  justify-content: space-around;
-  
-}
-
-.pagina2{
-  width: 35%;
-  height: 40px;
-  text-decoration: none;
-}
-
-.pagina2 li{
-  margin: 0 10px;
-}
-
-.pagina2 li a{
-  color: #fff;
-}
-
-.pagina2 li a:hover{
-  color: #483b3b;
-}
-
-.pagina2 li a:focus{
-  color: #483b3b;
-}
-
-.detalle{
-  width: 30%;
-  background-color: #a29e9e3f;
-  border-radius: 10px;
-  color: #fff;
-}
-
-.detalle h3{
-  text-align: center;
-  margin: 20px 20px;
-  padding-bottom: 10px;
-  border-bottom:1px solid #ffffff65;
-}
-
-.detalle-edit{
-  margin: 35px 15px;
-  border-bottom: 1px solid #fff;
-}
-
-.edit{
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 20px;
-}
-
 .filtrar{
   display: flex;
   width: 100%;
   justify-content: center;
-}
-
-.envio-domi {
-  display: flex ;
-  justify-content: center;
-  margin-top: 50px;
-  color: #fff;
-  width: 100%;
 }
 

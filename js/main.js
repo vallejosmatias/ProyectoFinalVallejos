@@ -3,6 +3,7 @@ const contProductos = document.querySelector(".cont-productos");
 const contCarrito = document.querySelector(".prod-carrito");
 
 let productos = [];
+let contadorProd = 0;
 
 // obtener los productos de la db json
 const obtenerProductos = async () => {
@@ -47,6 +48,7 @@ const mostrarProductos = (productos) => {
           background: "linear-gradient(to right,#3b3a3a, #35dab7)",
         },
       }).showToast();
+      console.log(contadorProd);
       localStorage.setItem("carrito", JSON.stringify(carrito));
     });
   });
@@ -121,7 +123,7 @@ function mostrarCarrito() {
       contCarrito.appendChild(nuevoProd);
 
       const btnEliminar = document.querySelector(`#eliminar-${p.id}`);
-      btnEliminar.addEventListener(`click`, () => eliminarProdCar(p.id));
+      btnEliminar.addEventListener("click", () => eliminarProdCar(p.id));
     });
 
     let contDiv = document.createElement("div");
@@ -140,7 +142,30 @@ function mostrarCarrito() {
     let btnFinalizar = document.createElement("div");
     btnFinalizar.classList.add("finalizar");
     btnFinalizar.innerHTML = `
-    <a class="btn-finalizar" href="pages/finalizarcarrito.html">Finalizar compra</a>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Finalizar compra
+    </button>
+    <div class="offcanvas-body prod-carrito">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+    hola
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary">Understood</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     `;
     contDiv.appendChild(btnFinalizar);
   } else {
@@ -215,12 +240,3 @@ const mostrarTotal = () => {
 };
 
 mostrarCarrito();
-
-// contador de productos
-let contadorProd = 0;
-
-const btnFinalizar = document.querySelector(".btn-finalizar");
-btnFinalizar.addEventListener(`click`, (e) =>{
-  const prodTotales = document.querySelector("#prod-totales");
-  prodTotales.innerHTML = `${contadorProd}`;
-})

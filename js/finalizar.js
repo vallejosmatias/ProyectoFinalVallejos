@@ -1,0 +1,1 @@
+const contadorProd = JSON.parse(localStorage.getItem('contador')) || [];   
