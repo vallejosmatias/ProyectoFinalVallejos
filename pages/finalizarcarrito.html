@@ -23,8 +23,8 @@
     </header>
     <main class="comprar-fin">
       <!-- section de pagos -->
-    <section>
-      <ul class="nav nav-tabs pagina2">
+    <section class="pagina2">
+      <ul class="nav nav-tabs">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#">Envio</a>
         </li>
@@ -32,15 +32,40 @@
           <a class="nav-link" href="#">Forma de pago</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Chequeo de datos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link" href="#">Confirmación de datos</a>
         </li>
       </ul>
+      <div class="envio-domi">
+        <input id="check-edit" type="checkbox">
+        <h4>Envio a domicilio</h4>
+      </div>
+      <div class="envio-domi">
+        <input id="check-edit" type="checkbox">
+        <h4>Retiro en el local</h4>
+      </div>
+      <button id="btn-sig" type="submit">Siguiente</button>
     </section>
-    <aside id="pagos">
-      
+   
+    <aside class="detalle">
+      <h3>Resumen de compra</h3>
+      <div class="detalle-edit">
+        <div class="edit">
+          <p>Productos</p>
+          <p id="prod-total">$</p>
+        </div>
+        <div class="edit">
+          <p>Cantidad</p>
+          <p id="prod-totales">-</p>
+        </div>
+        <div class="edit">
+          <p>Envio</p>
+          <p id="prod-envio">-</p>
+        </div>
+      </div>
+      <div class="edit">
+        <h4>Pagas</h4>
+        <p id="prod-pagar">$</p>
+      </div>
     </aside>
     </main>
     <footer>

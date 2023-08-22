@@ -2,17 +2,20 @@
 const contProductos = document.querySelector(".cont-productos");
 const contCarrito = document.querySelector(".prod-carrito");
 
+let productos = [];
+
 // obtener los productos de la db json
 const obtenerProductos = async () => {
   const resp = await fetch("../db/productos.json");
-  const data = await resp.json();
-  mostrarProductos(data);
+  productos = await resp.json();
+  mostrarProductos(productos);
 };
 
 obtenerProductos();
 
 // mostrar productos de la db json
 const mostrarProductos = (productos) => {
+  contProductos.innerHTML = ` `;
   productos.forEach((producto) => {
     const { img, nombre, id, precio } = producto;
     let div = document.createElement("div");
@@ -37,16 +40,45 @@ const mostrarProductos = (productos) => {
         destination: "https://github.com/apvarun/toastify-js",
         newWindow: true,
         close: true,
-        gravity: "top", 
+        gravity: "top",
         position: "left",
         stopOnFocus: true,
         style: {
-          background: "linear-gradient(to right,#3b3a3a, #35dab7)",        },
-        onClick: function(){} // Callback after click
+          background: "linear-gradient(to right,#3b3a3a, #35dab7)",
+        },
       }).showToast();
       localStorage.setItem("carrito", JSON.stringify(carrito));
     });
   });
+};
+
+// mostrar filtros
+const dropdownItems = document.querySelectorAll(".dropdown-item");
+
+dropdownItems.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    const categoria = e.target.id;
+    if (categoria === "btn-todos") {
+      mostrarProductos(productos);
+    } else if (categoria === "precio") {
+      const productosFiltrados = [...productos];
+      ordenarProductosPorPrecio(productosFiltrados);
+      mostrarProductos(productosFiltrados);
+    } else {
+      const productosFiltrados = filtrarProductosPorCategoria(categoria);
+      mostrarProductos(productosFiltrados);
+    }
+  });
+});
+
+// Función para filtrar productos por categoría
+const filtrarProductosPorCategoria = (categoria) => {
+  return productos.filter((producto) => producto.articulo === categoria);
+};
+
+// Función para ordenar productos por precio de menor a mayor
+const ordenarProductosPorPrecio = (productos) => {
+  productos.sort((a, b) => a.precio - b.precio);
 };
 
 // creando array de carrito
@@ -59,15 +91,17 @@ function agregarCarrito(data, id) {
     carrito.forEach((prod) => {
       if (prod.id === parseInt(id)) {
         prod.cantidad++;
+        contadorProd++;
       }
     });
   } else {
     let prodEncontrado = data.find((prod) => prod.id === parseInt(id));
     carrito.push(prodEncontrado);
+    contadorProd++;
   }
   mostrarCarrito();
   calcularTotal();
-  mostrartTotal();
+  mostrarTotal();
 }
 
 // mostrar en carrito
@@ -87,13 +121,14 @@ function mostrarCarrito() {
       contCarrito.appendChild(nuevoProd);
 
       const btnEliminar = document.querySelector(`#eliminar-${p.id}`);
-      btnEliminar.addEventListener(`click`, () =>eliminarProdCar(p.id));
+      btnEliminar.addEventListener(`click`, () => eliminarProdCar(p.id));
     });
 
     let contDiv = document.createElement("div");
     contDiv.classList.add("cont-buttons");
     contCarrito.appendChild(contDiv);
-    //div de total 
+
+    //div de total
     let div = document.createElement("div");
     div.classList.add("total");
     div.innerHTML = `
@@ -118,55 +153,52 @@ function mostrarCarrito() {
 // funcion eliminar
 function eliminarProdCar(id) {
   const producto = carrito.find((prod) => prod.id === parseInt(id));
-  
+
   if (producto) {
     if (producto.cantidad > 1) {
       producto.cantidad--;
+      contadorProd--;
       Toastify({
-        text: "eliminado",
+        text: "Eliminado",
         duration: 1000,
         destination: "https://github.com/apvarun/toastify-js",
         newWindow: true,
         close: true,
         gravity: "top",
-        position: "left", 
-        stopOnFocus: true, 
+        position: "left",
+        stopOnFocus: true,
         style: {
           background: "linear-gradient(to right, #35dab7, #3b3a3a)",
         },
-        onClick: function(){}
+        onClick: function () {},
       }).showToast();
     } else {
       const index = carrito.findIndex((p) => p.id === parseInt(id));
       Swal.fire({
-        title: '¿Estas seguro?',
+        title: "¿Estas seguro?",
         text: `Borrarás un producto`,
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, borralo!'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, borralo!",
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire(
-            'Borrado!',
-            'Lo has borrado.',
-            'success'
-            );
-            carrito.splice(index, 1);
+          Swal.fire("Borrado!", "Lo has borrado.", "success");
+          carrito.splice(index, 1);
+          contadorProd--;
         }
         localStorage.setItem("carrito", JSON.stringify(carrito));
-      mostrarCarrito();
-      calcularTotal();
-      mostrartTotal();
-      })
-    
+        mostrarCarrito();
+        calcularTotal();
+        mostrarTotal();
+      });
     }
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
     mostrarCarrito();
     calcularTotal();
-    mostrartTotal();
+    mostrarTotal();
   }
 }
 
@@ -177,13 +209,16 @@ const calcularTotal = () => {
   total = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
 };
 
-const mostrartTotal = () => {
+const mostrarTotal = () => {
   const totalElement = document.querySelector("#total");
   totalElement.textContent = `$${total}`;
 };
 
 mostrarCarrito();
 
-const finalizar = document.querySelector ("#pagos");
+// contador de productos
+let contadorProd = 0;
 
-console.log(contador);
+const prodTotales = document.querySelector("#prod-totales");
+prodTotales.innerHTML = `${contadorProd}`;
+
