@@ -29,6 +29,9 @@ const mostrarProductos = (productos) => {
     `;
     contProductos.appendChild(div);
   });
+  mostrarCarrito();
+    calcularTotal();
+    mostrarTotal();
 
   // funcional btn comprar
   const btnComprar = document.querySelectorAll(".btn-comprar");
@@ -93,13 +96,11 @@ function agregarCarrito(data, id) {
     carrito.forEach((prod) => {
       if (prod.id === parseInt(id)) {
         prod.cantidad++;
-        contadorProd++;
       }
     });
   } else {
     let prodEncontrado = data.find((prod) => prod.id === parseInt(id));
     carrito.push(prodEncontrado);
-    contadorProd++;
   }
   mostrarCarrito();
   calcularTotal();
@@ -142,30 +143,7 @@ function mostrarCarrito() {
     let btnFinalizar = document.createElement("div");
     btnFinalizar.classList.add("finalizar");
     btnFinalizar.innerHTML = `
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Finalizar compra
-    </button>
-    <div class="offcanvas-body prod-carrito">
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-    <div class="modal-header">
-    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-    hola
-    </div>
-    <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary">Understood</button>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+    <a href="pages/finalizar.html"> Finalizar compra</a>
     `;
     contDiv.appendChild(btnFinalizar);
   } else {
@@ -175,6 +153,7 @@ function mostrarCarrito() {
   }
 }
 
+
 // funcion eliminar
 function eliminarProdCar(id) {
   const producto = carrito.find((prod) => prod.id === parseInt(id));
@@ -182,7 +161,6 @@ function eliminarProdCar(id) {
   if (producto) {
     if (producto.cantidad > 1) {
       producto.cantidad--;
-      contadorProd--;
       Toastify({
         text: "Eliminado",
         duration: 1000,
@@ -211,7 +189,6 @@ function eliminarProdCar(id) {
         if (result.isConfirmed) {
           Swal.fire("Borrado!", "Lo has borrado.", "success");
           carrito.splice(index, 1);
-          contadorProd--;
         }
         localStorage.setItem("carrito", JSON.stringify(carrito));
         mostrarCarrito();
@@ -237,6 +214,7 @@ const calcularTotal = () => {
 const mostrarTotal = () => {
   const totalElement = document.querySelector("#total");
   totalElement.textContent = `$${total}`;
+  localStorage.setItem("total", JSON.stringify(total));
 };
 
 mostrarCarrito();
