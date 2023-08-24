@@ -87,11 +87,15 @@ const mostrarDetalles = (productos) => {
       }).then((result) => {
         localStorage.clear("carrito");
         if (result.isConfirmed) {
-          Swal.fire(
-            'Felicidades',
-            'Realizaste tu compra',
-            'success'
-            )
+          Swal.fire({
+            title:'Felicidades realizaste tu compra',
+            icon:'success',
+            confirmButtonText: `Finalizar`
+          }).then ((result) =>{
+            if (result.isConfirmed) {
+              location.href = "../index.html"
+            }
+          })
           }
       })
     })
