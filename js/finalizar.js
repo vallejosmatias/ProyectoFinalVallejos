@@ -66,11 +66,17 @@ const mostrarDetalles = (productos) => {
         })
       }
     })
+
+    // evento efectivo
+    const btnEfectivo = document.querySelector("#efectivo");
+    btnEfectivo.addEventListener('click', (e) =>{
+      let cuenta = total + precioEnvio;
+      totales.textContent = `$${cuenta}`
+    })
     
     // btn pagar 
     const btnPagar = document.querySelector(".fin");
     btnPagar.addEventListener('click', (e) =>{
-      // location.href = "../index.html"
       Swal.fire({
         title: '¿Confirma la compra?',
         icon: 'success',
@@ -86,32 +92,11 @@ const mostrarDetalles = (productos) => {
             'Realizaste tu compra',
             'success'
             )
-        }
+          }
       })
     })
   });
 };
 
 mostrarDetalles(carrito);
-
-// funcion para verificar los radio buttons
-// function verificarRb (){
-//   if (document.getElementById('domicilio').checked){
-//     const domicilio = "Eligio entrega a domicilio"
-//     console.log(domicilio);
-//   }
-// }
-
-//   if (document.getElementById('local').checked){
-//     const local = "Eligio retiro en el local";
-//   }
-//   if (document.getElementById('pago').checked){
-//     const tarjeta = "Eligio pagar con tarjeta de credito o debito";
-//   }
-//   if (document.getElementById('efectivo').checked){
-//     const efectivo = "Eligio pagar en efectivo";
-//   }
-// }
-
-// // btn pagar
 

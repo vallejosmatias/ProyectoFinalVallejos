@@ -212,9 +212,11 @@ const calcularTotal = () => {
 };
 
 const mostrarTotal = () => {
-  const totalElement = document.querySelector("#total");
-  totalElement.textContent = `$${total}`;
-  localStorage.setItem("total", JSON.stringify(total));
+  if (total>0){
+    const totalElement = document.querySelector("#total");
+    totalElement.textContent = `$${total}`;
+    localStorage.setItem("total", JSON.stringify(total));
+  }
 };
 
 mostrarCarrito();

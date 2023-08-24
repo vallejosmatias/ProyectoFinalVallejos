@@ -294,5 +294,14 @@ footer .info-edit{
 .form-pago .fin:hover{
   border: 1px solid #fff;
   background-color: #837e7e79;
+}
 
+/* btn-volver */
+.btn-volver{
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn-volver:hover{
+  color: #9c98986b;
 }
