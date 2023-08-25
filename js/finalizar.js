@@ -61,7 +61,7 @@ const mostrarDetalles = (productos) => {
         }).then((result) => {
           if (result.isConfirmed) {
             let cuenta = total + ((total + precioEnvio)*10)/100;
-            totales.textContent = `$${cuenta}`
+            totales.textContent = `$${cuenta + precioEnvio}`
           }
         })
       }
